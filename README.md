@@ -5,6 +5,6 @@
 
 - [Ataotao](http://Ataotao.github.io/)
 - [Tchenxin](http://Tchenxin.github.io/)
-- [TaoCHenCin](http://TaoCHenCin.github.io/)
+- [TaoChenXin](http://TaoChenXin.github.io/)
 
 - [This link](http://tzvuf.github.io/)
