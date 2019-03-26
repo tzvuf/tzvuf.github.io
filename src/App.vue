@@ -1,0 +1,26 @@
+<template>
+  <div id="app" class="main">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app',
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+</style>
+<style scoped>
+  .main {
+    width: 1000px;
+    margin: 0 auto;
+  }
+</style>
