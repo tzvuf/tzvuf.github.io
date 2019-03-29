@@ -1,42 +1,119 @@
 <template>
   <div>
-    <el-card header="视频">
-        <video width="100%" height="auto" controls="controls">
-            <source src="/source/01_brown_bear/01.mp4" type="video/mp4" />
-        </video>
-    </el-card>
-
-    <el-card header="音频">
-        <audio src="/source/01_brown_bear/brown bear故事.MP3" controls="controls"></audio>
-    </el-card>
-
-    <el-card header="文档">
-        <p><a href="/source/01_brown_bear/01-Brown_Bear,Brown_Bear,What_Do_You_See(小册子打印).pdf" target="_blank">01-Brown_Bear,Brown_Bear,What_Do_You_See(小册子打印)</a></p>
-        <p><a href="/source/01_brown_bear/英文绘本创意教学101.pdf" target="_blank">02-英文绘本创意教学101</a></p>
-    </el-card>
-    
+    <div class="slide" v-if="is_pc">
+      <div class="slide_inner" ref="content">
+        <div class="slide_list" v-for="v in data" v-bind:key="v.img">
+          <el-card>
+              <div slot="header">
+                <b class="title" v-text="v.en"></b>
+              </div>
+            <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" @click="play(v)">
+            <audio v-bind:src="cur_path + v.mp3" controls="controls" v-if="v.mp3" v-bind:ref="v.mp3"></audio>
+            <div class="blank" v-if="!v.mp3" ></div>
+          </el-card>
+        </div>
+      </div>
+    </div>
+    <div v-if="!is_pc && data.length > 0">
+        <hooper>
+          <slide v-for="v in data" :key="v.img">
+            <el-card>
+                <div slot="header">
+                  <b class="title" v-text="v.en"></b>
+                </div>
+              <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" @click="play(v)">
+              <audio v-bind:src="cur_path + v.mp3" controls="controls" v-if="v.mp3" v-bind:ref="v.mp3"></audio>
+              <div class="blank" v-if="!v.mp3" ></div>
+            </el-card>
+          </slide>
+      </hooper>
+    </div>
   </div>
 </template>
 
 <script>
+import { slide, isPc }  from '@/assets/js/tools';
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
+
 export default {
-  name: "Detail",
+  name: 'Detail',
   props: {
     msg: String
   },
+  components: {
+    Hooper,
+    Slide
+  },
   data() {
     return {
-      
+      is_pc: isPc(),
+      data: [],
+      cur_path: ''
     };
+  },
+  mounted() {
+    const { query } = this.$route;
+    const { category, title } = query;
+    this.cur_path = `/source/${category}/${title}/`;
+    this.data = require(`../json/${category}/${title}.json`);
+
+    if(this.is_pc) {
+      slide.init(this.$refs.content, this.data, 562);
+    }
+  },
+  methods: {
+    play(v) {
+      if(!v.mp3) return false;
+      const el = this.$refs[v.mp3];      
+      const _audio = el[0];
+      const refs = this.data.filter( _v => _v.mp3 && _v.mp3 !== v.mp3 );
+      for (let i = 0; i < refs.length; i++) {
+        const it = this.$refs[refs[i].mp3];
+        this.stop(it[0])
+      }
+
+      if(_audio.paused) {
+        _audio.play();
+      }
+    },
+    stop(_audio) {
+      if(!_audio.paused) {
+        _audio.pause();
+        _audio.currentTime = 0;
+      }
+    }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.main {
-  width: 800px;
-  margin: 0 auto;
-}
+.slide{ height: 95vh; overflow: hidden; position: relative;}
+.slide_inner{ position:absolute; display: flex; }
+.slide_list{
+  flex: 1; 
+  padding: 15px;
 
+}
+.slide_list img {
+  cursor: pointer;
+  transition: all 0.3s linear;
+  opacity: .85;
+}
+.slide_list img:hover{
+  opacity: 1;
+}
+.blank{
+  height: 58px;
+}
+.title{
+  font-size: 16px;
+}
+.hooper{
+  height: 100vh;
+}
+.hooper img{
+  width: 100%;
+}
 </style>

@@ -3,11 +3,12 @@
     <ol class="list">
       <li
         :key="v.id"
-        v-for="(v, idx) in list"
+        v-for="v in list"
         class="list_item"
         @click="routeTo(v)"
-      >{{idx}} - {{ v.title }}</li>
+      >{{v.category}} - {{ v.title }}</li>
     </ol>
+    
   </div>
 </template>
 
@@ -22,15 +23,20 @@ export default {
     return {
       list: [
         {
-          title: "Brown Bear",
+          title: "Big",
+          category: 'AA',
           id: "0"
+        },{
+          title: "Counting Bugs",
+          category: 'AA',
+          id: "1"
         }
       ]
     };
   },
   methods: {
-    routeTo({ id, title }) {
-      router.push({ path: `/detail/${id}`, query: { id, title }})
+    routeTo({ id, title, category }) {
+      router.push({ path: `/detail/${id}`, query: { id, title, category }})
     }
   }
 };
@@ -38,6 +44,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main {
+  width: 1000px;
+  margin: 0 auto;
+}
 .list {
   list-style: none;
   padding: 0;

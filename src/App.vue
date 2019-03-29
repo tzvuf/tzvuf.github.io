@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="main">
+  <div id="app">
     <router-view></router-view>
   </div>
 </template>
@@ -19,8 +19,5 @@ export default {
 
 </style>
 <style scoped>
-  .main {
-    width: 1000px;
-    margin: 0 auto;
-  }
+
 </style>

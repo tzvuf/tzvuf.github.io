@@ -1,0 +1,54 @@
+[{
+  "en": "Counting Bugs",
+  "cn": "数数虫子",
+  "img": "page_1.jpg"
+},{
+  "en": "Title",
+  "cn": "标题",
+  "img": "page_2.jpg"
+},{
+  "en": "One bug",
+  "cn": "一只虫子",
+  "img": "page_3.jpg",
+  "mp3": "page_3.mp3"
+},{
+  "en": "Two bugs",
+  "cn": "两只虫子",
+  "img": "page_4.jpg",
+  "mp3": "page_4.mp3"
+},{
+  "en": "Three bugs",
+  "cn": "三只虫子",
+  "img": "page_5.jpg",
+  "mp3": "page_5.mp3"
+},{
+  "en": "Four bugs",
+  "cn": "四只虫子",
+  "img": "page_6.jpg",
+  "mp3": "page_6.mp3"
+},{
+  "en": "Five bugs",
+  "cn": "五只虫子",
+  "img": "page_7.jpg",
+  "mp3": "page_7.mp3"
+},{
+  "en": "Six bugs",
+  "cn": " 六只虫子",
+  "img": "page_8.jpg",
+  "mp3": "page_8.mp3"
+},{
+  "en": "Seven bugs",
+  "cn": "七只虫子",
+  "img": "page_9.jpg",
+  "mp3": "page_9.mp3"
+},{
+  "en": "So many bugs!",
+  "cn": "这么多虫子",
+  "img": "page_10.jpg",
+  "mp3": "page_10.mp3"
+},{
+  "en": "The end",
+  "cn": "结束",
+  "img": "page_11.jpg",
+  "mp3": "page_11.mp3"
+}]

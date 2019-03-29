@@ -1,0 +1,27 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "globals": {
+        "axios": true
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "commonjs": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "plugins": [
+      "html"
+    ],
+    "rules": {
+      "no-debugger": 0,
+      "indent": ["warn", 2],
+      "no-console": ["off"],
+      "quotes": ["warn", "single"],
+      "semi": ["error", "always"]
+    }
+}
