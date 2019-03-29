@@ -5,7 +5,7 @@
         <div class="slide_list" v-for="v in data" v-bind:key="v.img">
           <el-card>
               <div slot="header">
-                <b class="title" v-text="v.en"></b>
+                <b class="title" v-text="v.cn"></b>
               </div>
             <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" @click="play(v)">
             <audio v-bind:src="cur_path + v.mp3" controls="controls" v-if="v.mp3" v-bind:ref="v.mp3"></audio>
