@@ -5,9 +5,22 @@
         <div class="slide_list" v-for="v in data" v-bind:key="v.img">
           <el-card>
               <div slot="header">
-                <b class="title" v-text="v.cn"></b>
+                <el-row type="flex" justify="space-between">
+                  <el-col v-bind:span="12">
+                    <div>
+                      <b class="title" v-text="v.cn"></b>
+                    </div>
+                    <div class="m-t-5">
+                      <el-button icon="el-icon-back" circle v-on:click="routerBack" title="返回上一页"></el-button>
+                    </div>
+                  </el-col>
+                  <el-col v-bind:span="12" class="col_r">
+                    <div v-text="v.m"></div>
+                    <div v-text="v.y"></div>
+                  </el-col>
+                </el-row> 
               </div>
-            <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" @click="play(v)">
+            <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" v-on:click="play(v)" />
             <audio v-bind:src="cur_path + v.mp3" controls="controls" v-if="v.mp3" v-bind:ref="v.mp3"></audio>
             <div class="blank" v-if="!v.mp3" ></div>
           </el-card>
@@ -16,12 +29,25 @@
     </div>
     <div v-if="!is_pc && data.length > 0">
         <hooper>
-          <slide v-for="v in data" :key="v.img">
+          <slide v-for="v in data" v-bind:key="v.img">
             <el-card>
                 <div slot="header">
-                  <b class="title" v-text="v.en"></b>
+                  <el-row type="flex" justify="space-between">
+                    <el-col v-bind:span="12">
+                      <div>
+                        <b class="title" v-text="v.cn"></b>
+                      </div>
+                      <div class="m-t-5">
+                        <el-button icon="el-icon-back" circle size="small" v-on:click="routerBack"></el-button>
+                      </div>
+                    </el-col>
+                    <el-col v-bind:span="12" class="col_r">
+                      <div v-text="v.m"></div>
+                      <div v-text="v.y"></div>
+                    </el-col>
+                  </el-row> 
                 </div>
-              <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" @click="play(v)">
+              <img v-bind:src="cur_path + v.img" v-bind:title="v.cn" v-on:click="play(v)" />
               <audio v-bind:src="cur_path + v.mp3" controls="controls" v-if="v.mp3" v-bind:ref="v.mp3"></audio>
               <div class="blank" v-if="!v.mp3" ></div>
             </el-card>
@@ -34,6 +60,7 @@
 <script>
 import { slide, isPc }  from '@/assets/js/tools';
 import { Hooper, Slide } from 'hooper';
+import router from '@/router';
 import 'hooper/dist/hooper.css';
 
 export default {
@@ -82,6 +109,9 @@ export default {
         _audio.pause();
         _audio.currentTime = 0;
       }
+    },
+    routerBack() {
+      router.back();
     }
   }
 }
@@ -108,12 +138,19 @@ export default {
   height: 58px;
 }
 .title{
-  font-size: 16px;
+  font-size: 15px;
 }
 .hooper{
   height: 100vh;
 }
 .hooper img{
   width: 100%;
+}
+.col_l{
+  text-align: right;
+}
+.col_r{
+  text-align: right;
+  font-size: 13px;
 }
 </style>

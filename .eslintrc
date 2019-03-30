@@ -1,17 +1,20 @@
 {
     "root": true,
-    "parser": "babel-eslint",
     "parserOptions": {
-      "sourceType": "module"
+      "sourceType": "module",
+      "parser": "babel-eslint"
     },
     "globals": {
         "axios": true
     },
     "env": {
-      "browser": true,
       "es6": true,
-      "commonjs": true,
-      "node": true
+      "browser": true,
+      "node": true,
+      "worker": true,
+      "mocha": true,
+      "phantomjs": true,
+      "serviceworker": true
     },
     "extends": "eslint:recommended",
     "plugins": [

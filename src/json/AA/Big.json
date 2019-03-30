@@ -1,54 +1,76 @@
 [{
   "en": "Big",
   "cn": "大",
+  "y": "英 [bɪg]",
+  "m": "美 [bɪɡ] ",
   "img": "page_1.jpg"
 },{
   "en": "Title",
   "cn": "标题",
+  "y": "英 ['taɪt(ə)l]",
+  "m": "美 ['taɪtl]",
   "img": "page_2.jpg",
   "mp3": "page_2.mp3"
 },{
   "en": "A big house",
   "cn": "一个大房子",
+  "y": "英 [ə; eɪ] [bɪg] [haʊs]",
+  "m": "美 [ə; e] [bɪɡ] [haʊs] ",
   "img": "page_3.jpg",
   "mp3": "page_3.mp3"
 },{
   "en": "A big dog",
   "cn": "一只大狗",
+  "y": "英 [ə; eɪ] [bɪg] [dɒg]",
+  "m": "美 [ə; e] [bɪɡ] [dɔɡ]",
   "img": "page_4.jpg",
   "mp3": "page_4.mp3"
 },{
   "en": "A big car",
   "cn": "一辆大车",
+  "y": "英 [ə; eɪ] [bɪg] [kɑː]",
+  "m": "美 [ə; e] [bɪɡ] [kɑr] ",
   "img": "page_5.jpg",
   "mp3": "page_5.mp3"
 },{
   "en": "A big bus",
   "cn": "一辆大巴士",
+  "y": "英 [ə; eɪ] [bɪg] [bʌs]",
+  "m": "美 [ə; e] [bɪɡ] [bʌs]",
   "img": "page_6.jpg",
   "mp3": "page_6.mp3"
 },{
   "en": "A big plane",
   "cn": "一架大飞机",
+  "y": "英 [ə; eɪ] [bɪg] [pleɪn]",
+  "m": "美 [ə; e] [bɪɡ] [plen]",
   "img": "page_7.jpg",
   "mp3": "page_7.mp3"
 },{
   "en": "A big tree",
   "cn": " 一棵大树",
+  "y": "英 [ə; eɪ] [bɪg] [triː]",
+  "m": "美 [ə; e] [bɪɡ] [tri]",
   "img": "page_8.jpg",
   "mp3": "page_8.mp3"
 },{
   "en": "A big elephant",
   "cn": "一头大象",
+  "y": "英 [ə; eɪ] [bɪg] ['elɪf(ə)nt]",
+  "m": "美 [ə; e] [bɪɡ] [ˈɛləfənt]",
   "img": "page_9.jpg",
   "mp3": "page_9.mp3"
 },{
   "en": "A big dinosaur",
   "cn": "一只大恐龙",
+  "y": "英 [ə; eɪ] [bɪg] ['daɪnəsɔː]",
+  "m": "美 [ə; e] [bɪɡ] [ˈdaɪnəˌsɔr] ",
   "img": "page_10.jpg",
   "mp3": "page_10.mp3"
 },{
   "en": "The end",
+  "y": "英 [ðə;ði:] [end]",
+  "m": "美 [ðə; ði] [ɛnd]",
   "cn": "结束",
   "img": "page_11.jpg"
 }]

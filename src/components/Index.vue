@@ -1,18 +1,21 @@
 <template>
   <div class="main">
-    <ol class="list">
-      <li
-        :key="v.id"
-        v-for="v in list"
-        class="list_item"
-        @click="routeTo(v)"
-      >{{v.category}} - {{ v.title }}</li>
-    </ol>
+    <el-row :gutter="10" class="list">
+      <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" 
+        v-bind:key="v.id" v-for="v in list"
+        class="list_item">
+          <div v-on:click="routeTo(v)">
+            <div><img v-bind:src="`/source/AA/${v.title}/page_1.jpg`" class="list_img"/></div>
+            <span v-text="v.category + '-' + v.title"></span>
+          </div>
+        </el-col>
+    </el-row>
     
   </div>
 </template>
 
 <script>
+
 import router from '@/router';
 export default {
   name: "Index",
@@ -30,6 +33,10 @@ export default {
           title: "Counting Bugs",
           category: 'AA',
           id: "1"
+        },{
+          title: "Counting Letters",
+          category: 'AA',
+          id: "2"
         }
       ]
     };
@@ -45,22 +52,26 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .main {
-  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .list {
-  list-style: none;
-  padding: 0;
   margin: 0;
 }
 .list_item {
-  padding-left: 15px;
+  padding-top: 10px;
+  margin-right: -1px;
+  margin-top: -1px;
   cursor: pointer;
   transition: all 0.3s linear;
   line-height: 35px;
-  border-bottom: solid 1px #ddd;
+  border: solid 1px #ddd;
+  text-align: center;
 }
 .list_item:hover {
   background-color: #eee;
+}
+.list_img{
+  width: 100px;
 }
 </style>
