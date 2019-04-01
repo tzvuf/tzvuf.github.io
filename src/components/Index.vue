@@ -13,7 +13,7 @@
       >
         <div @click="routeTo(v)">
           <div>
-            <img class="list_img" :src="`/source/AA/${v.title}/page_1.jpg`">
+            <img class="list_img" :src="`/source/AA/${v.title}/page-1.jpg`">
           </div>
           <span v-text="v.category + '-' + v.title"></span>
         </div>
