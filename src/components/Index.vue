@@ -1,49 +1,40 @@
 <template>
   <div class="main">
     <el-row :gutter="10" class="list">
-      <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" 
-        v-bind:key="v.id" v-for="v in list"
-        class="list_item">
-          <div v-on:click="routeTo(v)">
-            <div><img v-bind:src="`/source/AA/${v.title}/page_1.jpg`" class="list_img"/></div>
-            <span v-text="v.category + '-' + v.title"></span>
+      <el-col
+        :lg="6"
+        :md="6"
+        :sm="12"
+        :xl="6"
+        :xs="12"
+        v-for="v in list"
+        :key="v.id"
+        class="list_item"
+      >
+        <div @click="routeTo(v)">
+          <div>
+            <img class="list_img" :src="`/source/AA/${v.title}/page_1.jpg`">
           </div>
-        </el-col>
+          <span v-text="v.category + '-' + v.title"></span>
+        </div>
+      </el-col>
     </el-row>
-    
   </div>
 </template>
 
 <script>
-
 import router from '@/router';
+import RAZ from '@/json/01.graded_reading_RAZ.json';
 export default {
-  name: "Index",
-  props: {
-    msg: String
-  },
+  name: 'Index',
   data() {
     return {
-      list: [
-        {
-          title: "Big",
-          category: 'AA',
-          id: "0"
-        },{
-          title: "Counting Bugs",
-          category: 'AA',
-          id: "1"
-        },{
-          title: "Counting Letters",
-          category: 'AA',
-          id: "2"
-        }
-      ]
+      list: RAZ
     };
   },
   methods: {
     routeTo({ id, title, category }) {
-      router.push({ path: `/detail/${id}`, query: { id, title, category }})
+      router.push({ path: `/detail/${id}`, query: { id, title, category } });
     }
   }
 };
@@ -71,7 +62,7 @@ export default {
 .list_item:hover {
   background-color: #eee;
 }
-.list_img{
+.list_img {
   width: 100px;
 }
 </style>
