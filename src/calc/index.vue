@@ -54,17 +54,17 @@
         <el-form-item label="售价($美元)">
           <el-input v-model="discount_price_en" disabled></el-input>
         </el-form-item>
-        <el-form-item label="售价(￥人民币)">
+        <!-- <el-form-item label="售价(￥人民币)">
           <el-input v-model="discount_price" disabled></el-input>
-        </el-form-item>
+        </el-form-item> -->
         </el-row>
         <el-row :gutter="10">
           <el-form-item label="折扣价-实际卖价($美元)">
             <el-input v-model="sell_price_en" disabled></el-input>
           </el-form-item>
-          <el-form-item label="折扣价-实际卖价(￥人民币)">
+          <!-- <el-form-item label="折扣价-实际卖价(￥人民币)">
             <el-input v-model="sell_price" disabled></el-input>
-          </el-form-item>
+          </el-form-item> -->
         </el-row>
         <el-row :gutter="10">
         <el-form-item label="利润(￥)">
