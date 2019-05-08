@@ -3,7 +3,7 @@
     <div>
       <h3>速卖通计算器</h3>
       <p>出售的价格-货物价值-国内货物物流运费-平台抽取佣金（速卖通的佣金是8个点，敦煌网的佣金大概20个点）-国际物流运费=利润</p>
-      <p>包装袋大概0.02-0.04之间，还有包装袋和打印纸的成本, 一起大概算1元</P>
+      <p>包装袋大概0.02-0.04之间，还有包装袋和打印纸的成本, 一起大概算1元</p>
     </div>
     <el-form ref="form" :model="form" label-width="120px" inline>
       <el-form-item label="出售价格($)">
@@ -44,19 +44,25 @@ export default {
   },
   computed: {
     // 计算属性的 getter
-    profit: function () {
-      const {cost, logistics_cost_cn, brokerage, price, pack, weight} = this.form;
-      	// 0.064*50	
-          // 65 - 15 - 5 - （13） -（15 + 3.25）- 1 = 
-          // 出售的价格-货物价值-国内货物物流运费-平台抽取佣金（速卖通的佣金是8个点，敦煌网的佣金大概20个点）-国际物流运费=利润<
-          // 1美元 = 6.7755人民币 汇率
-      return (price * 6.7755) - cost - logistics_cost_cn - ( 15 + 0.064 * weight) - (price * 0.08) - pack;
+    profit: function() {
+      const {
+        cost,
+        logistics_cost_cn,
+        brokerage,
+        price,
+        pack,
+        weight
+      } = this.form;
+      // 0.064*50
+      // 65 - 15 - 5 - （13） -（15 + 3.25）- 1 =
+      // 出售的价格-货物价值-国内货物物流运费-平台抽取佣金（速卖通的佣金是8个点，敦煌网的佣金大概20个点）-国际物流运费=利润<
+      // 1美元 = 6.7755人民币 汇率
+      const _rmb = price * 6.7755;
+      return _rmb - cost - logistics_cost_cn - (15 + 0.064 * weight) - _rmb * 0.08 - pack;
     }
   },
   methods: {
-    routeTo({ id, title, category }) {
-     
-    }
+    routeTo({ id, title, category }) {}
   }
 };
 </script>
