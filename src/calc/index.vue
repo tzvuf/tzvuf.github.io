@@ -54,17 +54,17 @@
         <el-form-item label="售价($美元)">
           <el-input v-model="discount_price_en" disabled></el-input>
         </el-form-item>
-        <!-- <el-form-item label="售价(￥人民币)">
+        <el-form-item label="售价(￥人民币)">
           <el-input v-model="discount_price" disabled></el-input>
-        </el-form-item> -->
+        </el-form-item>
         </el-row>
         <el-row :gutter="10">
           <el-form-item label="折扣价-实际卖价($美元)">
             <el-input v-model="sell_price_en" disabled></el-input>
           </el-form-item>
-          <!-- <el-form-item label="折扣价-实际卖价(￥人民币)">
+          <el-form-item label="折扣价-实际卖价(￥人民币)">
             <el-input v-model="sell_price" disabled></el-input>
-          </el-form-item> -->
+          </el-form-item>
         </el-row>
         <el-row :gutter="10">
         <el-form-item label="利润(￥)">
@@ -104,12 +104,17 @@ export default {
     },
     // 显示售价(人民币)
     discount_price: function(vm) {
-      const { profit_rate, discount_rate } = vm.form;
+      const { profit_rate, discount_rate, brokerage_rate } = vm.form;
       // 期望利润 
       const _profit_rate = (parseFloat(profit_rate) / 100);
       const _profit = vm.price * _profit_rate;
-      const p = vm.price + _profit;
-      return p + p * (parseFloat(discount_rate) / 100);
+      // 成本 + 期望利润 
+      let p = vm.price + _profit;
+      // 加上平台折扣
+      p = p + p * (parseFloat(discount_rate) / 100);
+      // 加上佣金
+      p = p + p * (parseFloat(brokerage_rate) / 100);
+      return p;
     },
     // 显示售价(美元)
     discount_price_en: function(vm) {
