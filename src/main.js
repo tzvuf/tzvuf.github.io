@@ -14,6 +14,9 @@ import {
   Card,
   Row,
   Col,
+  Form,
+  FormItem,
+  Input
 } from 'element-ui';
 
 Vue.use(Icon);
@@ -21,6 +24,9 @@ Vue.use(Button);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
 Vue.use(Loading.directive);
 
 Vue.prototype.$loading = Loading.service;
