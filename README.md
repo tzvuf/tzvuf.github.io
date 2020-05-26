@@ -1,29 +1,15 @@
-# picture-book
+# umi project
 
-## Project setup
-```
-yarn install
-```
+## Getting Started
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+Install dependencies,
+
+```bash
+$ yarn
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+Start the dev server,
 
-### Run your tests
+```bash
+$ yarn start
 ```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
