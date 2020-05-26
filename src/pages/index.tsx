@@ -28,7 +28,8 @@ const Fn1 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} = ( {show ? n1 + n2 : ''} )
+      {n1} + {n2} = ( <span className={styles.red}>{show ? n1 + n2 : ''}</span>{' '}
+      )
     </span>
   );
 };
@@ -51,7 +52,8 @@ const Fn2 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n2} - {n1} = ( {show ? n2 - n1 : ''} )
+      {n2} - {n1} = ( <span className={styles.red}>{show ? n2 - n1 : ''}</span>{' '}
+      )
     </span>
   );
 };
@@ -79,7 +81,8 @@ const Fn3 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} ÷ {n2} = ( {show ? n1 / n2 : ''} )
+      {n1} ÷ {n2} = ( <span className={styles.red}>{show ? n1 / n2 : ''}</span>{' '}
+      )
     </span>
   );
 };
@@ -110,7 +113,8 @@ const Fn4 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} - {n3} = ( {show ? n1 + n2 - n3 : ''} )
+      {n1} + {n2} - {n3} = ({' '}
+      <span className={styles.red}>{show ? n1 + n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -135,7 +139,8 @@ const Fn5 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} x {n2} - {n3} = ( {show ? n1 * n2 - n3 : ''} )
+      {n1} x {n2} - {n3} = ({' '}
+      <span className={styles.red}>{show ? n1 * n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -161,7 +166,8 @@ const Fn6 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n3} - ({n1} + {n2}) = ( {show ? n3 - (n1 + n2) : ''} )
+      {n3} - ({n1} + {n2}) = ({' '}
+      <span className={styles.red}>{show ? n3 - (n1 + n2) : ''}</span> )
     </span>
   );
 };
@@ -189,7 +195,8 @@ const Fn7 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n2} x ( {show ? n1 / n2 : ''} ) = {n1}
+      {n2} x ( <span className={styles.red}>{show ? n1 / n2 : ''}</span> ) ={' '}
+      {n1}
     </span>
   );
 };
@@ -215,7 +222,8 @@ const Fn8 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} > {n2} x ( {show ? Math.floor(n1 / n2) : ''} )
+      {n1} > {n2} x ({' '}
+      <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
     </span>
   );
 };
@@ -241,7 +249,8 @@ const Fn9 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      ( {show ? Math.floor(n1 / n2) : ''} ) x {n2} &lt; {n1}
+      ( <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
+      x {n2} &lt; {n1}
     </span>
   );
 };
@@ -268,7 +277,8 @@ const Fn10 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - {n2} - {n3} = ( {show ? n1 - n2 - n3 : ''} )
+      {n1} - {n2} - {n3} = ({' '}
+      <span className={styles.red}>{show ? n1 - n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -298,7 +308,8 @@ const Fn11 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} + {n3} = ( {show ? n1 + n2 + n3 : ''} )
+      {n1} + {n2} + {n3} = ({' '}
+      <span className={styles.red}>{show ? n1 + n2 + n3 : ''}</span> )
     </span>
   );
 };
@@ -329,7 +340,8 @@ const Fn12 = ({ show, refresh }: IProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - ( {n2} + {n3} ) = ( {show ? n1 - (n2 + n3) : ''} )
+      {n1} - ( {n2} + {n3} ) = ({' '}
+      <span className={styles.red}>{show ? n1 - (n2 + n3) : ''}</span> )
     </span>
   );
 };
@@ -346,13 +358,18 @@ const handlePrint = () => {
 };
 
 export default () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [refresh, setRefresh] = useState('');
 
   // 刷新题目
   const handleRefaesh = () => {
-    setShow(true);
+    setShow(false);
     setRefresh(new Date().getTime() + '');
+  };
+
+  // 显示隐藏答案
+  const handleSetShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -360,7 +377,7 @@ export default () => {
       <div className={styles.link + ' ' + styles.noprint}>
         <span onClick={handleRefaesh}>【重新出题】</span>
         <span>&emsp;</span>
-        <span onClick={() => setShow(true)}>【显示答案】</span>
+        <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>
         <span>&emsp;</span>
         <span onClick={handlePrint}>【打印本页】</span>
       </div>
