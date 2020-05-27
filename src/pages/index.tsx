@@ -6,6 +6,33 @@ function getRandomNumberByRange(start: number, end: number) {
   return Math.round(Math.random() * (end - start) + start);
 }
 
+// 客户端判断
+export const clientType = () => {
+  let sUserAgent = navigator.userAgent.toLowerCase() as any;
+  let bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+  let bIsIphoneOs = sUserAgent.match(/iphone os/i) == 'iphone os';
+  let bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+  let bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+  let bIsUc = sUserAgent.match(/ucweb/i) == 'ucweb';
+  let bIsAndroid = sUserAgent.match(/android/i) == 'android';
+  let bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+  let bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+  if (
+    bIsIpad ||
+    bIsIphoneOs ||
+    bIsMidp ||
+    bIsUc7 ||
+    bIsUc ||
+    bIsAndroid ||
+    bIsCE ||
+    bIsWM
+  ) {
+    return 'mobile';
+  } else {
+    return 'pc';
+  }
+};
+
 interface IProps {
   show: boolean;
   refresh: string;
@@ -354,7 +381,11 @@ const Fn12 = ({ show, refresh }: IProps) => {
 
 const handlePrint = () => {
   // 打印页面预览
-  window.print();
+  if (clientType() === 'pc') {
+    window.print();
+  } else {
+    alert('使用电脑进行打印');
+  }
 };
 
 export default () => {
@@ -375,11 +406,11 @@ export default () => {
   return (
     <>
       <div className={styles.link + ' ' + styles.noprint}>
-        <span onClick={handleRefaesh}>【重新出题】</span>
+        <span onClick={handlePrint}>【打印本页】</span>
         <span>&emsp;</span>
         <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>
         <span>&emsp;</span>
-        <span onClick={handlePrint}>【打印本页】</span>
+        <span onClick={handleRefaesh}>【重新出题】</span>
       </div>
       <div className={styles.content}>
         <div className={styles.row}>

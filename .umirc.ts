@@ -5,6 +5,7 @@ export default defineConfig({
     type: 'hash',
   },
   hash: true,
+  base: '/q',
   nodeModulesTransform: {
     type: 'none',
   },
