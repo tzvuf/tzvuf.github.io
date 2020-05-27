@@ -205,25 +205,25 @@ const Fn6 = ({ show, refresh }: IProps) => {
  */
 
 const Fn7 = ({ show, refresh }: IProps) => {
+  const max = 89;
   const [n1, setN1] = useState(0);
   const [n2, setN2] = useState(0);
   useEffect(() => {
     while (true) {
-      const _n1 = getRandomNumberByRange(1, 81);
+      const _n1 = getRandomNumberByRange(1, max);
       const _n2 = getRandomNumberByRange(1, 9);
-      if (_n1 % _n2 === 0) {
-        if (_n1 / _n2 <= 9) {
-          setN1(_n1);
-          setN2(_n2);
-          break;
-        }
+      if (_n1 % _n2 > 0 && _n1 / _n2 <= 9 && _n1 > _n2) {
+        setN1(_n1);
+        setN2(_n2);
+        break;
       }
     }
   }, [refresh]);
   return (
     <span>
-      {n2} x ( <span className={styles.red}>{show ? n1 / n2 : ''}</span> ) ={' '}
-      {n1}
+      {n2} x ({' '}
+      <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
+      &lt; {n1}
     </span>
   );
 };
