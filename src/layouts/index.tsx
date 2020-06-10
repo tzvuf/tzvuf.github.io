@@ -26,7 +26,7 @@ const Layouts: FC = ({ children }) => {
   return (
     <>
       <div className={styles.layouts + ' noprint'}>
-        {config.map(v => {
+        {config.map((v, vIdx) => {
           return (
             <Fragment key={v.key}>
               <Link to={v.url}>
@@ -38,7 +38,7 @@ const Layouts: FC = ({ children }) => {
                   {v.name}
                 </Button>
               </Link>
-              <Divider type="vertical" />
+              {vIdx < config.length - 1 && <Divider type="vertical" />}
             </Fragment>
           );
         })}

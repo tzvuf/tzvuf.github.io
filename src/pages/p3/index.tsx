@@ -1,6 +1,6 @@
 import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
 import styles from '../index.less';
-import { List, Divider } from 'antd';
+import { List, Divider, Modal } from 'antd';
 
 // 生成指定的随机数字
 function getRandomNumberByRange(start: number, end: number) {
@@ -391,6 +391,7 @@ const handlePrint = () => {
 export default () => {
   const [show, setShow] = useState(false);
   const [refresh, setRefresh] = useState('');
+  const [visible, setVisible] = useState(false);
 
   // 刷新题目
   const handleRefaesh = () => {
@@ -402,6 +403,15 @@ export default () => {
   const handleSetShow = () => {
     setShow(!show);
   };
+
+  const handleShowModal = () => {
+    setVisible(true);
+  };
+
+  const handleHideModal = () => {
+    setVisible(false);
+  };
+
   const data_1 = [
     <Fn1 show={show} refresh={refresh} />,
     <Fn2 show={show} refresh={refresh} />,
@@ -431,11 +441,13 @@ export default () => {
   return (
     <>
       <div className={styles.link + ' ' + styles.noprint}>
-        <span onClick={handlePrint}>【打印本页】</span>
-        <span>&emsp;</span>
-        <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>
-        <span>&emsp;</span>
-        <span onClick={handleRefaesh}>【重新出题】</span>
+        <span onClick={handlePrint}>打印本页</span>
+        <Divider type="vertical" />
+        <span onClick={handleSetShow}>{show ? '隐藏' : '显示'}答案</span>
+        <Divider type="vertical" />
+        <span onClick={handleRefaesh}>重新出题</span>
+        <Divider type="vertical" />
+        <span onClick={handleShowModal}>书写格式</span>
       </div>
       <div className={styles.content_1}>
         <List
@@ -466,7 +478,7 @@ export default () => {
           dataSource={data_2}
           renderItem={(item, idx) => (
             <List.Item>
-              <span className="gray">{idx + 1}.</span> {item}
+              <span className="gray">{data_1.length + idx + 1}.</span> {item}
             </List.Item>
           )}
         />
@@ -483,7 +495,10 @@ export default () => {
           dataSource={data_3}
           renderItem={(item, idx) => (
             <List.Item>
-              <span className="gray">{idx + 1}.</span> {item}
+              <span className="gray">
+                {data_1.length + data_2.length + idx + 1}.
+              </span>{' '}
+              {item}
             </List.Item>
           )}
         />
@@ -500,11 +515,26 @@ export default () => {
           dataSource={data_4}
           renderItem={(item, idx) => (
             <List.Item>
-              <span className="gray">{idx + 1}.</span> {item}
+              <span className="gray">
+                {data_1.length + data_2.length + data_3.length + idx + 1}.
+              </span>{' '}
+              {item}
             </List.Item>
           )}
         />
       </div>
+
+      <Modal
+        title="书写格式"
+        visible={visible}
+        onOk={handleHideModal}
+        onCancel={handleHideModal}
+        footer={null}
+      >
+        <div>
+          <img src="/img/p3_1.jpg" style={{ maxWidth: '100%' }} />
+        </div>
+      </Modal>
     </>
   );
 };
