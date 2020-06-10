@@ -406,7 +406,7 @@ export default () => {
 
   return (
     <>
-      <div className={classNames(styles.link, 'noprint')}>
+      <div className={classNames(styles.link, styles.noprint)}>
         <span onClick={handlePrint}>【打印本页】</span>
         <span>&emsp;</span>
         <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>

@@ -1,6 +1,7 @@
 import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
 import styles from '../index.less';
 import { List, Divider, Modal } from 'antd';
+import classNames from 'classnames';
 
 // 生成指定的随机数字
 function getRandomNumberByRange(start: number, end: number) {
@@ -440,7 +441,7 @@ export default () => {
 
   return (
     <>
-      <div className={styles.link + ' ' + styles.noprint}>
+      <div className={classNames(styles.link, styles.noprint)}>
         <span onClick={handlePrint}>打印本页</span>
         <Divider type="vertical" />
         <span onClick={handleSetShow}>{show ? '隐藏' : '显示'}答案</span>
@@ -453,7 +454,7 @@ export default () => {
         <List
           header={
             <div>
-              <span className="f20">口算：</span>
+              <span className="f18">口算：</span>
               <span className="gray">一步计算和二步计算各3题</span>
             </div>
           }
@@ -470,7 +471,7 @@ export default () => {
           style={{ marginTop: 15 }}
           header={
             <div>
-              <span className="f20">括号里最大能填几：</span>
+              <span className="f18">括号里最大能填几：</span>
               <span className="gray">共3题</span>
             </div>
           }
@@ -487,7 +488,7 @@ export default () => {
           style={{ marginTop: 15 }}
           header={
             <div>
-              <span className="f20">递等式计算：</span>
+              <span className="f18">递等式计算：</span>
               <span className="gray">共3题</span>
             </div>
           }
@@ -507,7 +508,7 @@ export default () => {
           style={{ marginTop: 15 }}
           header={
             <div>
-              <span className="f20">笔算：</span>
+              <span className="f18">笔算：</span>
               <span className="gray">能用简便写法和不能用简便写法的各1题</span>
             </div>
           }
