@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  title: '出题机',
   history: {
     type: 'hash',
   },
