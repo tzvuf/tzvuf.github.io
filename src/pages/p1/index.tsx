@@ -1,5 +1,6 @@
 import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
 import styles from '../index.less';
+import classNames from 'classnames';
 
 // 生成指定的随机数字
 function getRandomNumberByRange(start: number, end: number) {
@@ -405,7 +406,7 @@ export default () => {
 
   return (
     <>
-      <div className={styles.link + ' ' + styles.noprint}>
+      <div className={classNames(styles.link, 'noprint')}>
         <span onClick={handlePrint}>【打印本页】</span>
         <span>&emsp;</span>
         <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>

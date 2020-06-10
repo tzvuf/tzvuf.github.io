@@ -118,7 +118,7 @@ const Fn3 = ({ show, refresh }: IProps) => {
 };
 
 /**
- * 10以内 现乘后除
+ * 10以内 先乘后除
  * 4 x 9  ÷ 6 = ( 6 )
  */
 const Fn4 = ({ show, refresh }: IProps) => {
