@@ -1,3 +1,4 @@
+import path from 'path';
 import { defineConfig } from 'umi';
 
 export default defineConfig({
@@ -9,6 +10,9 @@ export default defineConfig({
   // base: '/',
   nodeModulesTransform: {
     type: 'none',
+  },
+  alias: {
+    '@': path.resolve(__dirname, './src/'),
   },
   // 配置 external
   externals: {

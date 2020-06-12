@@ -30,6 +30,7 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "prettier": "1.19.1"
   },
   "__npminstall_done": false

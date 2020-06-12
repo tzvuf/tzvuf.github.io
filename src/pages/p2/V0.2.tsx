@@ -4,30 +4,20 @@ import styles from '../index.less';
 import { List, Divider, Modal } from 'antd';
 import classNames from 'classnames';
 import {
-  Q1,
   Q2,
   Q4,
   Q3,
-  Q5,
-  Q6,
-  Q7,
   Q8,
   Q9,
   Q10,
   Q11,
   Q12,
   Q13,
-  Q14,
-  Q15,
-  Q16,
-  Q17,
   Q18,
   Q19,
   Q20,
-  Q21,
 } from '@/components/Question';
 import { handlePrint } from '@/utils';
-import { getRandomComponent } from '@/utils';
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -54,27 +44,12 @@ export default () => {
   };
 
   const data_1 = [
-    getRandomComponent([
-      <Q1 show={show} refresh={refresh} />,
-      <Q2 show={show} refresh={refresh} />,
-    ]),
+    <Q2 show={show} refresh={refresh} />,
     <Q4 show={show} refresh={refresh} />,
     <Q3 show={show} refresh={refresh} />,
-    getRandomComponent([
-      <Q18 show={show} refresh={refresh} />,
-      <Q14 show={show} refresh={refresh} />,
-      <Q15 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q8 show={show} refresh={refresh} />,
-      <Q9 show={show} refresh={refresh} />,
-      <Q10 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q17 show={show} refresh={refresh} />,
-      <Q19 show={show} refresh={refresh} />,
-      <Q20 show={show} refresh={refresh} />,
-    ]),
+    <Q18 show={show} refresh={refresh} />,
+    <Q8 show={show} refresh={refresh} />,
+    <Q20 show={show} refresh={refresh} />,
   ];
 
   const data_2 = [
@@ -84,33 +59,14 @@ export default () => {
   ];
 
   const data_3 = [
-    getRandomComponent([
-      <Q16 show={show} refresh={refresh} />,
-      <Q21 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q18 show={show} refresh={refresh} />,
-      <Q14 show={show} refresh={refresh} />,
-      <Q15 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q17 show={show} refresh={refresh} />,
-      <Q19 show={show} refresh={refresh} />,
-      <Q20 show={show} refresh={refresh} />,
-    ]),
+    <Q20 show={show} refresh={refresh} />,
+    <Q18 show={show} refresh={refresh} />,
+    <Q19 show={show} refresh={refresh} />,
   ];
 
   const data_4 = [
-    getRandomComponent([
-      <Q5 show={show} refresh={refresh} />,
-      <Q6 show={show} refresh={refresh} />,
-      <Q7 show={show} refresh={refresh} />,
-      <Q9 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q8 show={show} refresh={refresh} />,
-      <Q10 show={show} refresh={refresh} />,
-    ]),
+    <Q9 show={show} refresh={refresh} />,
+    <Q10 show={show} refresh={refresh} />,
   ];
 
   return (
@@ -197,11 +153,6 @@ export default () => {
             </List.Item>
           )}
         />
-      </div>
-      <div className={styles.history}>
-        历史版本：<Link to="/p2/V0.1">V0.1</Link>
-        <Divider type="vertical" />
-        <Link to="/p2/V0.2">V0.2</Link>
       </div>
 
       <Modal
