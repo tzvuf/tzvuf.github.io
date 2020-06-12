@@ -72,8 +72,8 @@ export const Q3 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} ÷ {n2} = ( <span className={styles.red}>{show ? n1 / n2 : ''}</span>{' '}
-      )
+      {n1} ÷ {n2} = ({' '}
+      <span className={styles.red}>{show ? String(n1 / n2) : ''}</span> )
     </span>
   );
 };
@@ -442,7 +442,7 @@ export const Q16 = ({ show, refresh }: QuestionProps) => {
   return (
     <span>
       {n1} x {n2} ÷ {n3} = ({' '}
-      <span className={styles.red}>{show ? (n1 * n2) / n3 : ''}</span> )
+      <span className={styles.red}>{show ? String((n1 * n2) / n3) : ''}</span> )
     </span>
   );
 };
@@ -586,7 +586,7 @@ export const Q21 = ({ show, refresh }: QuestionProps) => {
   return (
     <span>
       {n1} ÷ {n2} x {n3} = ({' '}
-      <span className={styles.red}>{show ? (n1 / n2) * n3 : ''}</span> )
+      <span className={styles.red}>{show ? String((n1 / n2) * n3) : ''}</span> )
     </span>
   );
 };

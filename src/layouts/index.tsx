@@ -24,7 +24,6 @@ const Layouts: FC<IProps> = props => {
   const { pathname } = location;
   const key = config.findIndex(v => v.url === pathname);
   const [active, setActive] = useState(key > -1 ? String(key + 1) : '1');
-  console.log(pathname);
   return (
     <>
       <div className={styles.layouts + ' noprint'}>

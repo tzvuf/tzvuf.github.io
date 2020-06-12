@@ -23,12 +23,29 @@ import {
   Q21,
 } from '@/components/Question';
 
+const fn = () => {
+  return [
+    [Q1, Q2],
+    [Q1, Q2],
+    [Q3, Q4],
+    [Q3, Q4],
+    [Q5, Q6],
+    [Q5, Q6],
+    [Q7, Q8, Q9, Q10],
+    [Q14, Q15, Q18],
+    [Q16, Q21],
+    [Q17, Q20],
+  ].map(v => getRandomComponent(v));
+};
+
 export default () => {
   const [show, setShow] = useState(false);
   const [refresh, setRefresh] = useState('');
+  const [data_1, setData_1] = useState(fn());
 
   // 刷新题目
   const handleRefaesh = () => {
+    setData_1(fn());
     setShow(false);
     setRefresh(new Date().getTime() + '');
   };
@@ -48,79 +65,13 @@ export default () => {
         <span onClick={handleRefaesh}>【重新出题】</span>
       </div>
       <div className={styles.content}>
-        <div className={styles.row}>
-          1.{' '}
-          {getRandomComponent([
-            <Q1 show={show} refresh={refresh} />,
-            <Q2 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          2.{' '}
-          {getRandomComponent([
-            <Q1 show={show} refresh={refresh} />,
-            <Q2 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          3.{' '}
-          {getRandomComponent([
-            <Q3 show={show} refresh={refresh} />,
-            <Q4 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          4.{' '}
-          {getRandomComponent([
-            <Q3 show={show} refresh={refresh} />,
-            <Q4 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          5.{' '}
-          {getRandomComponent([
-            <Q5 show={show} refresh={refresh} />,
-            <Q6 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          6.{' '}
-          {getRandomComponent([
-            <Q5 show={show} refresh={refresh} />,
-            <Q6 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          7.{' '}
-          {getRandomComponent([
-            <Q7 show={show} refresh={refresh} />,
-            <Q8 show={show} refresh={refresh} />,
-            <Q9 show={show} refresh={refresh} />,
-            <Q10 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          8.{' '}
-          {getRandomComponent([
-            <Q14 show={show} refresh={refresh} />,
-            <Q15 show={show} refresh={refresh} />,
-            <Q18 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          9.{' '}
-          {getRandomComponent([
-            <Q16 show={show} refresh={refresh} />,
-            <Q21 show={show} refresh={refresh} />,
-          ])}
-        </div>
-        <div className={styles.row}>
-          10.{' '}
-          {getRandomComponent([
-            <Q17 show={show} refresh={refresh} />,
-            <Q20 show={show} refresh={refresh} />,
-          ])}
-        </div>
+        {data_1.map((Comp, idx) => {
+          return (
+            <div className={styles.row} key={idx}>
+              {idx + 1}. <Comp show={show} refresh={refresh} />
+            </div>
+          );
+        })}
       </div>
     </>
   );

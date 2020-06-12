@@ -1,5 +1,5 @@
 import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
-import { Link } from 'umi';
+import { Link, history } from 'umi';
 import styles from '../index.less';
 import { List, Divider, Modal } from 'antd';
 import classNames from 'classnames';
@@ -26,18 +26,56 @@ import {
   Q20,
   Q21,
 } from '@/components/Question';
-import { handlePrint } from '@/utils';
-import { getRandomComponent } from '@/utils';
+import { handlePrint, getRandomComponent } from '@/utils';
+
+const fn1 = () => {
+  return [
+    [Q1, Q2],
+    [Q4],
+    [Q3],
+    [Q18, Q14, Q15],
+    [Q8, Q9, Q10],
+    [Q17, Q19, Q20],
+  ].map(v => getRandomComponent(v));
+};
+
+const fn2 = () => {
+  return [[Q11], [Q13], [Q12]].map(v => getRandomComponent(v));
+};
+
+const fn3 = () => {
+  return [
+    [Q16, Q21],
+    [Q18, Q14, Q15],
+    [Q17, Q19, Q20],
+  ].map(v => getRandomComponent(v));
+};
+
+const fn4 = () => {
+  return [
+    [Q5, Q6, Q7, Q9],
+    [Q8, Q10],
+  ].map(v => getRandomComponent(v));
+};
 
 export default () => {
   const [show, setShow] = useState(false);
   const [refresh, setRefresh] = useState('');
   const [visible, setVisible] = useState(false);
 
+  const [data_1, setData_1] = useState(fn1());
+  const [data_2, setData_2] = useState(fn2());
+  const [data_3, setData_3] = useState(fn3());
+  const [data_4, setData_4] = useState(fn4());
+
   // 刷新题目
   const handleRefaesh = () => {
     setShow(false);
     setRefresh(new Date().getTime() + '');
+    setData_1(fn1);
+    setData_2(fn2);
+    setData_3(fn3);
+    setData_4(fn4);
   };
 
   // 显示隐藏答案
@@ -52,66 +90,6 @@ export default () => {
   const handleHideModal = () => {
     setVisible(false);
   };
-
-  const data_1 = [
-    getRandomComponent([
-      <Q1 show={show} refresh={refresh} />,
-      <Q2 show={show} refresh={refresh} />,
-    ]),
-    <Q4 show={show} refresh={refresh} />,
-    <Q3 show={show} refresh={refresh} />,
-    getRandomComponent([
-      <Q18 show={show} refresh={refresh} />,
-      <Q14 show={show} refresh={refresh} />,
-      <Q15 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q8 show={show} refresh={refresh} />,
-      <Q9 show={show} refresh={refresh} />,
-      <Q10 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q17 show={show} refresh={refresh} />,
-      <Q19 show={show} refresh={refresh} />,
-      <Q20 show={show} refresh={refresh} />,
-    ]),
-  ];
-
-  const data_2 = [
-    <Q11 show={show} refresh={refresh} />,
-    <Q13 show={show} refresh={refresh} />,
-    <Q12 show={show} refresh={refresh} />,
-  ];
-
-  const data_3 = [
-    getRandomComponent([
-      <Q16 show={show} refresh={refresh} />,
-      <Q21 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q18 show={show} refresh={refresh} />,
-      <Q14 show={show} refresh={refresh} />,
-      <Q15 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q17 show={show} refresh={refresh} />,
-      <Q19 show={show} refresh={refresh} />,
-      <Q20 show={show} refresh={refresh} />,
-    ]),
-  ];
-
-  const data_4 = [
-    getRandomComponent([
-      <Q5 show={show} refresh={refresh} />,
-      <Q6 show={show} refresh={refresh} />,
-      <Q7 show={show} refresh={refresh} />,
-      <Q9 show={show} refresh={refresh} />,
-    ]),
-    getRandomComponent([
-      <Q8 show={show} refresh={refresh} />,
-      <Q10 show={show} refresh={refresh} />,
-    ]),
-  ];
 
   return (
     <>
@@ -134,11 +112,14 @@ export default () => {
           }
           bordered
           dataSource={data_1}
-          renderItem={(item, idx) => (
-            <List.Item>
-              <span className="gray">{idx + 1}.</span> {item}
-            </List.Item>
-          )}
+          renderItem={(Comp, idx) => {
+            return (
+              <List.Item>
+                <span className="gray">{idx + 1}.</span>{' '}
+                <Comp show={show} refresh={refresh} />
+              </List.Item>
+            );
+          }}
         />
 
         <List
@@ -151,9 +132,10 @@ export default () => {
           }
           bordered
           dataSource={data_2}
-          renderItem={(item, idx) => (
+          renderItem={(Comp, idx) => (
             <List.Item>
-              <span className="gray">{data_1.length + idx + 1}.</span> {item}
+              <span className="gray">{data_1.length + idx + 1}.</span>{' '}
+              <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />
@@ -168,12 +150,12 @@ export default () => {
           }
           bordered
           dataSource={data_3}
-          renderItem={(item, idx) => (
+          renderItem={(Comp, idx) => (
             <List.Item>
               <span className="gray">
                 {data_1.length + data_2.length + idx + 1}.
               </span>{' '}
-              {item}
+              <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />
@@ -188,12 +170,12 @@ export default () => {
           }
           bordered
           dataSource={data_4}
-          renderItem={(item, idx) => (
+          renderItem={(Comp, idx) => (
             <List.Item>
               <span className="gray">
                 {data_1.length + data_2.length + data_3.length + idx + 1}.
               </span>{' '}
-              {item}
+              <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />

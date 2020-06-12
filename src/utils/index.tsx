@@ -1,3 +1,4 @@
+import { TYPE_Q_FUN } from '@/type/global';
 // 验证数组
 export function isArray(obj: any) {
   // return obj instanceof Array;
@@ -14,9 +15,15 @@ export function getRandomNumberForArr(arr: number[]) {
   const index = Math.floor(Math.random() * arr.length);
   return arr[index];
 }
+/** 从数字中随机取一位数字 */
+export function getRandomNumberForNumber(n: number) {
+  const arr = new Array(n).fill('1');
+  const index = Math.floor(Math.random() * arr.length);
+  return index;
+}
 
 /** 随机取一个组件 */
-export function getRandomComponent(components: JSX.Element[]) {
+export function getRandomComponent(components: TYPE_Q_FUN[]) {
   const idx = getRandomNumberForArr(components.map((v, idx) => idx));
   return components[idx];
 }
