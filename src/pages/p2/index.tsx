@@ -1,42 +1,13 @@
-import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
-import { Link, history } from 'umi';
+import React, { useState } from 'react';
+import { Link } from 'umi';
 import styles from '../index.less';
-import { List, Divider, Modal } from 'antd';
-import classNames from 'classnames';
-import {
-  Q1,
-  Q2,
-  Q4,
-  Q3,
-  Q5,
-  Q6,
-  Q7,
-  Q8,
-  Q9,
-  Q10,
-  Q11,
-  Q12,
-  Q13,
-  Q14,
-  Q15,
-  Q16,
-  Q17,
-  Q18,
-  Q19,
-  Q20,
-  Q21,
-} from '@/components/Question';
-import { handlePrint, getRandomComponent } from '@/utils';
+import { List, Divider, Modal, Button } from 'antd';
+import Menu from '@/components/Menu';
+import { Q1, Q2, Q4, Q3, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21 } from '@/components/Question';
+import { getRandomComponent } from '@/utils';
 
 const fn1 = () => {
-  return [
-    [Q1, Q2],
-    [Q4],
-    [Q3],
-    [Q18, Q14, Q15],
-    [Q8, Q9, Q10],
-    [Q17, Q19, Q20],
-  ].map(v => getRandomComponent(v));
+  return [[Q1, Q2], [Q4], [Q3], [Q18, Q14, Q15], [Q8, Q9, Q10], [Q17, Q19, Q20]].map(v => getRandomComponent(v));
 };
 
 const fn2 = () => {
@@ -91,17 +62,16 @@ export default () => {
     setVisible(false);
   };
 
+  const [ssValue, setSS] = useState(0);
+
   return (
     <>
-      <div className={classNames(styles.link, styles.noprint)}>
-        <span onClick={handlePrint}>打印本页</span>
-        <Divider type="vertical" />
-        <span onClick={handleSetShow}>{show ? '隐藏' : '显示'}答案</span>
-        <Divider type="vertical" />
-        <span onClick={handleRefaesh}>重新出题</span>
+      <Button onClick={() => setSS(ssValue + 1)}>点击</Button>
+      <Menu show={show} onRefaesh={handleRefaesh} onSetShow={handleSetShow}>
         <Divider type="vertical" />
         <span onClick={handleShowModal}>书写格式</span>
-      </div>
+      </Menu>
+
       <div className={styles.content_1}>
         <List
           header={
@@ -115,8 +85,7 @@ export default () => {
           renderItem={(Comp, idx) => {
             return (
               <List.Item>
-                <span className="gray">{idx + 1}.</span>{' '}
-                <Comp show={show} refresh={refresh} />
+                <span className="gray">{idx + 1}.</span> <Comp show={show} refresh={refresh} />
               </List.Item>
             );
           }}
@@ -134,8 +103,7 @@ export default () => {
           dataSource={data_2}
           renderItem={(Comp, idx) => (
             <List.Item>
-              <span className="gray">{data_1.length + idx + 1}.</span>{' '}
-              <Comp show={show} refresh={refresh} />
+              <span className="gray">{data_1.length + idx + 1}.</span> <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />
@@ -152,10 +120,7 @@ export default () => {
           dataSource={data_3}
           renderItem={(Comp, idx) => (
             <List.Item>
-              <span className="gray">
-                {data_1.length + data_2.length + idx + 1}.
-              </span>{' '}
-              <Comp show={show} refresh={refresh} />
+              <span className="gray">{data_1.length + data_2.length + idx + 1}.</span> <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />
@@ -172,10 +137,7 @@ export default () => {
           dataSource={data_4}
           renderItem={(Comp, idx) => (
             <List.Item>
-              <span className="gray">
-                {data_1.length + data_2.length + data_3.length + idx + 1}.
-              </span>{' '}
-              <Comp show={show} refresh={refresh} />
+              <span className="gray">{data_1.length + data_2.length + data_3.length + idx + 1}.</span> <Comp show={show} refresh={refresh} />
             </List.Item>
           )}
         />
@@ -186,13 +148,7 @@ export default () => {
         <Link to="/p2/V0.2">V0.2</Link>
       </div>
 
-      <Modal
-        title="书写格式"
-        visible={visible}
-        onOk={handleHideModal}
-        onCancel={handleHideModal}
-        footer={null}
-      >
+      <Modal title="书写格式" visible={visible} onOk={handleHideModal} onCancel={handleHideModal} footer={null}>
         <div>
           <img src="/img/p3_1.jpg" style={{ maxWidth: '100%' }} />
         </div>

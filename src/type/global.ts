@@ -4,3 +4,5 @@ export interface QuestionProps {
 }
 
 export type TYPE_Q_FUN = ({ show, refresh }: QuestionProps) => JSX.Element;
+
+export type Fn = () => void;

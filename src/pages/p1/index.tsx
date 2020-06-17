@@ -1,27 +1,8 @@
-import React, { useState, memo, useMemo, useEffect, useCallback } from 'react';
-import styles from '../index.less';
-import classNames from 'classnames';
-import { handlePrint } from '@/utils';
+import React, { useState } from 'react';
 import { getRandomComponent } from '@/utils';
-import {
-  Q1,
-  Q2,
-  Q3,
-  Q4,
-  Q5,
-  Q6,
-  Q7,
-  Q8,
-  Q9,
-  Q10,
-  Q14,
-  Q15,
-  Q16,
-  Q17,
-  Q18,
-  Q20,
-  Q21,
-} from '@/components/Question';
+import styles from '../index.less';
+import Menu from '@/components/Menu';
+import { Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q14, Q15, Q16, Q17, Q18, Q20, Q21 } from '@/components/Question';
 
 const fn = () => {
   return [
@@ -54,16 +35,10 @@ export default () => {
   const handleSetShow = () => {
     setShow(!show);
   };
-
+  console.log('p1');
   return (
     <>
-      <div className={classNames(styles.link, styles.noprint)}>
-        <span onClick={handlePrint}>【打印本页】</span>
-        <span>&emsp;</span>
-        <span onClick={handleSetShow}>【{show ? '隐藏' : '显示'}答案】</span>
-        <span>&emsp;</span>
-        <span onClick={handleRefaesh}>【重新出题】</span>
-      </div>
+      <Menu show={show} onRefaesh={handleRefaesh} onSetShow={handleSetShow} />
       <div className={styles.content}>
         {data_1.map((Comp, idx) => {
           return (

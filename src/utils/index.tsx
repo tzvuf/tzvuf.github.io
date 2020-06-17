@@ -39,16 +39,7 @@ export const clientType = () => {
   let bIsAndroid = sUserAgent.match(/android/i) == 'android';
   let bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
   let bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
-  if (
-    bIsIpad ||
-    bIsIphoneOs ||
-    bIsMidp ||
-    bIsUc7 ||
-    bIsUc ||
-    bIsAndroid ||
-    bIsCE ||
-    bIsWM
-  ) {
+  if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
     return 'mobile';
   } else {
     return 'pc';
