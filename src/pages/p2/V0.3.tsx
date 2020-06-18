@@ -3,23 +3,15 @@ import { Link } from 'umi';
 import styles from '../index.less';
 import { List, Divider, Modal, Button } from 'antd';
 import Menu from '@/components/Menu';
-import { Q1, Q2, Q4, Q3, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25 } from '@/components/Question';
+import { Q1, Q2, Q4, Q3, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21 } from '@/components/Question';
 import { getRandomComponent } from '@/utils';
 
 const fn1 = () => {
-  return [
-    [Q1, Q2],
-    [Q3, Q4],
-    [Q18, Q14, Q15, Q9],
-    [Q8, Q10, Q17, Q19, Q20],
-  ].map(v => getRandomComponent(v));
+  return [[Q1, Q2], [Q4], [Q3], [Q18, Q14, Q15], [Q8, Q9, Q10], [Q17, Q19, Q20]].map(v => getRandomComponent(v));
 };
 
 const fn2 = () => {
-  return [
-    [Q11, Q13],
-    [Q12, Q13],
-  ].map(v => getRandomComponent(v));
+  return [[Q11], [Q13], [Q12]].map(v => getRandomComponent(v));
 };
 
 const fn3 = () => {
@@ -32,9 +24,8 @@ const fn3 = () => {
 
 const fn4 = () => {
   return [
-    [Q5, Q6, Q7, Q9, Q25],
+    [Q5, Q6, Q7, Q9],
     [Q8, Q10],
-    [Q3, Q20, Q22, Q23, Q24, Q25],
   ].map(v => getRandomComponent(v));
 };
 
@@ -83,7 +74,7 @@ export default () => {
           header={
             <div>
               <span className="f18">口算：</span>
-              <span className="gray">一步计算和二步计算各2题</span>
+              <span className="gray">一步计算和二步计算各3题</span>
             </div>
           }
           bordered
@@ -102,7 +93,7 @@ export default () => {
           header={
             <div>
               <span className="f18">括号里最大能填几：</span>
-              <span className="gray">共2题</span>
+              <span className="gray">共3题</span>
             </div>
           }
           bordered
@@ -136,7 +127,7 @@ export default () => {
           header={
             <div>
               <span className="f18">笔算：</span>
-              <span className="gray">能用简便写法1题，不能用简便写法2题</span>
+              <span className="gray">能用简便写法和不能用简便写法的各1题</span>
             </div>
           }
           bordered
@@ -152,8 +143,6 @@ export default () => {
         历史版本：<Link to="/p2/V0.1">V0.1</Link>
         <Divider type="vertical" />
         <Link to="/p2/V0.2">V0.2</Link>
-        <Divider type="vertical" />
-        <Link to="/p2/V0.3">V0.3</Link>
       </div>
 
       <Modal title="书写格式" visible={visible} onOk={handleHideModal} onCancel={handleHideModal} footer={null}>

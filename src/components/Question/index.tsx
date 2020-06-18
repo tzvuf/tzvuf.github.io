@@ -20,8 +20,7 @@ export const Q1 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} = ( <span className={styles.red}>{show ? n1 + n2 : ''}</span>{' '}
-      )
+      {n1} + {n2} = ( <span className={styles.red}>{show ? n1 + n2 : ''}</span> )
     </span>
   );
 };
@@ -43,8 +42,7 @@ export const Q2 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n2} - {n1} = ( <span className={styles.red}>{show ? n2 - n1 : ''}</span>{' '}
-      )
+      {n2} - {n1} = ( <span className={styles.red}>{show ? n2 - n1 : ''}</span> )
     </span>
   );
 };
@@ -72,8 +70,7 @@ export const Q3 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} ÷ {n2} = ({' '}
-      <span className={styles.red}>{show ? String(n1 / n2) : ''}</span> )
+      {n1} ÷ {n2} = ( <span className={styles.red}>{show ? String(n1 / n2) : ''}</span> )
     </span>
   );
 };
@@ -95,8 +92,7 @@ export const Q4 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} x {n2} = ( <span className={styles.red}>{show ? n2 * n1 : ''}</span>{' '}
-      )
+      {n1} x {n2} = ( <span className={styles.red}>{show ? n2 * n1 : ''}</span> )
     </span>
   );
 };
@@ -123,8 +119,7 @@ export const Q5 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - {n2} - {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 - n2 - n3 : ''}</span> )
+      {n1} - {n2} - {n3} = ( <span className={styles.red}>{show ? n1 - n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -154,8 +149,7 @@ export const Q6 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} + {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 + n2 + n3 : ''}</span> )
+      {n1} + {n2} + {n3} = ( <span className={styles.red}>{show ? n1 + n2 + n3 : ''}</span> )
     </span>
   );
 };
@@ -186,8 +180,7 @@ export const Q7 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} - {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 + n2 - n3 : ''}</span> )
+      {n1} + {n2} - {n3} = ( <span className={styles.red}>{show ? n1 + n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -213,8 +206,7 @@ export const Q8 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n3} - ({n1} + {n2}) = ({' '}
-      <span className={styles.red}>{show ? n3 - (n1 + n2) : ''}</span> )
+      {n3} - ({n1} + {n2}) = ( <span className={styles.red}>{show ? n3 - (n1 + n2) : ''}</span> )
     </span>
   );
 };
@@ -240,8 +232,7 @@ export const Q9 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - {n2} + {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 - n2 + n3 : ''}</span> )
+      {n1} - {n2} + {n3} = ( <span className={styles.red}>{show ? n1 - n2 + n3 : ''}</span> )
     </span>
   );
 };
@@ -266,8 +257,7 @@ export const Q10 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - ({n2} - {n3}) = ({' '}
-      <span className={styles.red}>{show ? String(n1 - (n2 - n3)) : ''}</span> )
+      {n1} - ({n2} - {n3}) = ( <span className={styles.red}>{show ? String(n1 - (n2 - n3)) : ''}</span> )
     </span>
   );
 };
@@ -294,9 +284,7 @@ export const Q11 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n2} x ({' '}
-      <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
-      &lt; {n1}
+      {n2} x ( <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> ) &lt; {n1}
     </span>
   );
 };
@@ -322,11 +310,7 @@ export const Q12 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      ({' '}
-      <span className={styles.red}>
-        {show ? String(Math.floor(n1 / n2)) : ''}
-      </span>{' '}
-      ) x {n2} &lt; {n1}
+      ( <span className={styles.red}>{show ? String(Math.floor(n1 / n2)) : ''}</span> ) x {n2} &lt; {n1}
     </span>
   );
 };
@@ -352,8 +336,7 @@ export const Q13 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} &gt; {n2} x ({' '}
-      <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
+      {n1} &gt; {n2} x ( <span className={styles.red}>{show ? Math.floor(n1 / n2) : ''}</span> )
     </span>
   );
 };
@@ -377,8 +360,7 @@ export const Q14 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} x {n2} - {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 * n2 - n3 : ''}</span> )
+      {n1} x {n2} - {n3} = ( <span className={styles.red}>{show ? n1 * n2 - n3 : ''}</span> )
     </span>
   );
 };
@@ -402,8 +384,7 @@ export const Q15 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} - {n2} x {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 - n2 * n3 : ''}</span> )
+      {n1} - {n2} x {n3} = ( <span className={styles.red}>{show ? n1 - n2 * n3 : ''}</span> )
     </span>
   );
 };
@@ -427,9 +408,7 @@ export const Q16 = ({ show, refresh }: QuestionProps) => {
           _arr.push(i);
         }
       }
-      _arr = _arr.filter(
-        v => _s1 / v < 10 && v > 1 && v !== _n1 && v !== _n2 && _s1 !== v,
-      );
+      _arr = _arr.filter(v => _s1 / v < 10 && v > 1 && v !== _n1 && v !== _n2 && _s1 !== v);
       const _n3 = getRandomNumberForArr(_arr);
       if (_n3) {
         setN1(_n1);
@@ -441,8 +420,7 @@ export const Q16 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} x {n2} ÷ {n3} = ({' '}
-      <span className={styles.red}>{show ? String((n1 * n2) / n3) : ''}</span> )
+      {n1} x {n2} ÷ {n3} = ( <span className={styles.red}>{show ? String((n1 * n2) / n3) : ''}</span> )
     </span>
   );
 };
@@ -471,8 +449,7 @@ export const Q17 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      ( {n2} - {n1} ) x {n3} = ({' '}
-      <span className={styles.red}>{show ? (n2 - n1) * n3 : ''}</span> )
+      ( {n2} - {n1} ) x {n3} = ( <span className={styles.red}>{show ? (n2 - n1) * n3 : ''}</span> )
     </span>
   );
 };
@@ -496,8 +473,7 @@ export const Q18 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} + {n2} x {n3} = ({' '}
-      <span className={styles.red}>{show ? n1 + n2 * n3 : ''}</span> )
+      {n1} + {n2} x {n3} = ( <span className={styles.red}>{show ? n1 + n2 * n3 : ''}</span> )
     </span>
   );
 };
@@ -526,8 +502,7 @@ export const Q19 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} x ( {n2} ÷ {n3} ) = ({' '}
-      <span className={styles.red}>{show ? String(n1 * (n2 / n3)) : ''}</span> )
+      {n1} x ( {n2} ÷ {n3} ) = ( <span className={styles.red}>{show ? String(n1 * (n2 / n3)) : ''}</span> )
     </span>
   );
 };
@@ -556,8 +531,7 @@ export const Q20 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      ( {n1} - {n2} ) ÷ {n3} = ({' '}
-      <span className={styles.red}>{show ? String((n1 - n2) / n3) : ''}</span> )
+      ( {n1} - {n2} ) ÷ {n3} = ( <span className={styles.red}>{show ? String((n1 - n2) / n3) : ''}</span> )
     </span>
   );
 };
@@ -585,8 +559,125 @@ export const Q21 = ({ show, refresh }: QuestionProps) => {
   }, [refresh]);
   return (
     <span>
-      {n1} ÷ {n2} x {n3} = ({' '}
-      <span className={styles.red}>{show ? String((n1 / n2) * n3) : ''}</span> )
+      {n1} ÷ {n2} x {n3} = ( <span className={styles.red}>{show ? String((n1 / n2) * n3) : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *  先减后除
+ * 48 ÷ (8 - 2) = ( 8 )
+ */
+export const Q22 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  const [n3, setN3] = useState(0);
+  useEffect(() => {
+    while (true) {
+      const _n1 = getRandomNumberByRange(10, 81);
+      const _n3 = getRandomNumberByRange(1, 9);
+      const _n2 = getRandomNumberByRange(_n3, 9);
+      const _s1 = _n2 - _n3;
+      if (_n1 % _s1 === 0 && _n1 / _s1 <= 9) {
+        setN1(_n1);
+        setN2(_n2);
+        setN3(_n3);
+        break;
+      }
+    }
+  }, [refresh]);
+  return (
+    <span>
+      {n1} ÷ ( {n2} - {n3} ) = ( <span className={styles.red}>{show ? String(n1 / (n2 - n3)) : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *  先除后减
+ * 72 - 18 ÷ 9 = ( 69 )
+ */
+export const Q23 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  const [n3, setN3] = useState(0);
+  useEffect(() => {
+    while (true) {
+      const _n2 = getRandomNumberByRange(10, 81);
+      const _n3 = getRandomNumberByRange(1, 9);
+      const _s1 = _n2 / _n3;
+      if (_n2 % _n3 === 0 && _s1 <= 9) {
+        const _n1 = getRandomNumberByRange(_n2 / _n3, 81);
+        setN1(_n1);
+        setN2(_n2);
+        setN3(_n3);
+        break;
+      }
+    }
+  }, [refresh]);
+  return (
+    <span>
+      {n1} - {n2} ÷ {n3} = ( <span className={styles.red}>{show ? String(n1 - n2 / n3) : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *  先加后除
+ * 24 ÷ (4 + 2) = ( 4 )
+ */
+export const Q24 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  const [n3, setN3] = useState(0);
+  useEffect(() => {
+    while (true) {
+      const _n1 = getRandomNumberByRange(1, 81);
+      const _n2 = getRandomNumberByRange(1, 9);
+      const _n3 = getRandomNumberByRange(1, 9);
+      const _s1 = _n2 + _n3;
+      if (_n1 % _s1 === 0 && _s1 <= 9) {
+        setN1(_n1);
+        setN2(_n2);
+        setN3(_n3);
+        break;
+      }
+    }
+  }, [refresh]);
+  return (
+    <span>
+      {n1} ÷ ( {n2} + {n3} ) = ( <span className={styles.red}>{show ? String(n1 / (n2 + n3)) : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 带余数除法
+ * 21 ÷ 4 = ( 5 )..... (1)
+ */
+export const Q25 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  const [n3, setN3] = useState(0);
+  const [n4, setN4] = useState(0);
+  useEffect(() => {
+    while (true) {
+      const _n1 = getRandomNumberByRange(10, 81);
+      const _n2 = getRandomNumberByRange(1, 9);
+      const _n3 = Math.floor(_n1 / _n2);
+      if (_n3 <= 9) {
+        setN1(_n1);
+        setN2(_n2);
+        setN3(_n3);
+        setN4(_n1 % _n2);
+        break;
+      }
+    }
+  }, [refresh]);
+  return (
+    <span>
+      {n1} ÷ {n2} = (<span className={styles.red}>{show ? n3 : ''}</span> ) ..... (<span className={styles.red}>{show ? n4 : ''}</span> )
     </span>
   );
 };
