@@ -42,6 +42,7 @@ export default class Layouts extends Component<IProps> {
       <>
         <div className={styles.layouts + ' noprint'}>
           {!pathname.includes('/V0') &&
+            !pathname.includes('/test') &&
             config.map((v, vIdx) => {
               return (
                 <Fragment key={v.key}>
