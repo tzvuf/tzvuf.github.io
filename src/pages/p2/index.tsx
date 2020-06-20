@@ -32,9 +32,9 @@ const fn3 = () => {
 
 const fn4 = () => {
   return [
-    [Q5, Q6, Q7, Q9, Q25],
+    [Q5, Q6, Q7, Q19],
     [Q8, Q10],
-    [Q3, Q20, Q22, Q23, Q24, Q25],
+    [Q3, Q20, Q22, Q23, Q24, ...Array(16).fill(Q25)],
   ].map(v => getRandomComponent(v));
 };
 
