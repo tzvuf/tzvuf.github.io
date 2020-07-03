@@ -14,6 +14,11 @@ const config = [
     key: '2',
     url: '/p1',
   },
+  {
+    name: '1万内整数运算',
+    key: '3',
+    url: '/p4',
+  },
 ];
 
 interface IProps {

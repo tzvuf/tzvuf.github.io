@@ -681,3 +681,172 @@ export const Q25 = ({ show, refresh }: QuestionProps) => {
     </span>
   );
 };
+
+/**
+ *
+ * 100 内整数加法
+ * 30 + 50 = ( 80 )
+ */
+export const Q26 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(1, 10 - _n1);
+    setN1(_n1 * 10);
+    setN2(_n2 * 10);
+  }, [refresh]);
+  return (
+    <span>
+      {n1} + {n2} = (<span className={styles.red}>{show ? n1 + n2 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 1000 内整数加法
+ * 300 + 500 = ( 800 )
+ */
+export const Q27 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(1, 10 - _n1);
+    setN1(_n1 * 100);
+    setN2(_n2 * 100);
+  }, [refresh]);
+  return (
+    <span>
+      {n1} + {n2} = (<span className={styles.red}>{show ? n1 + n2 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 1000内整数加法
+ * 130 + 50 = ( 80 )
+ * 70 + 150 = ( 220 )
+ */
+export const Q28 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 99);
+    const _n2 = getRandomNumberByRange(1, 99 - _n1);
+    setN1(_n1 * 10);
+    setN2(_n2 * 10);
+  }, [refresh]);
+  return (
+    <span>
+      {n1} + {n2} = (<span className={styles.red}>{show ? n1 + n2 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 10000 内整数加法
+ * 3000 + 5000 = ( 8000 )
+ */
+export const Q29 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(1, 10 - _n1);
+    setN1(_n1 * 1000);
+    setN2(_n2 * 1000);
+  }, [refresh]);
+  return (
+    <span>
+      {n1} + {n2} = (<span className={styles.red}>{show ? n1 + n2 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 100 内整数减法
+ * 350 - 230 = ( 120 )
+ */
+export const Q30 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 99);
+    const _n2 = getRandomNumberByRange(_n1, 99);
+    setN1(_n1 * 10);
+    setN2(_n2 * 10);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 100 内整数减法
+ * 50 - 30 = ( 20 )
+ */
+export const Q31 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(_n1, 10);
+    setN1(_n1 * 10);
+    setN2(_n2 * 10);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 1000 内减法
+ * 500 - 300 = ( 200 )
+ */
+export const Q32 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(_n1, 10);
+    setN1(_n1 * 100);
+    setN2(_n2 * 100);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
+ * 10000 内减法
+ * 5000 - 3000 = ( 2000 )
+ */
+export const Q33 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 9);
+    const _n2 = getRandomNumberByRange(_n1, 10);
+    setN1(_n1 * 1000);
+    setN2(_n2 * 1000);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
