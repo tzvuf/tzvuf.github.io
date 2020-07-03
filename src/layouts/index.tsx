@@ -52,11 +52,11 @@ export default class Layouts extends Component<IProps> {
               return (
                 <Fragment key={v.key}>
                   <Link to={v.url}>
-                    <Button type={v.key === active ? 'primary' : 'default'} size="large" onClick={() => this.setActive(v.key)}>
+                    <Button type={v.key === active ? 'primary' : 'default'} size="middle" onClick={() => this.setActive(v.key)}>
                       {v.name}
                     </Button>
                   </Link>
-                  {vIdx < config.length - 1 && <Divider type="vertical" />}
+                  {vIdx < config.length - 1 && <Divider type="vertical" style={{ marginRight: 5, marginLeft: 5 }} />}
                 </Fragment>
               );
             })}
