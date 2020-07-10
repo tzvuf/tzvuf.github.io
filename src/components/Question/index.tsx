@@ -691,8 +691,8 @@ export const Q26 = ({ show, refresh }: QuestionProps) => {
   const [n1, setN1] = useState(0);
   const [n2, setN2] = useState(0);
   useEffect(() => {
-    const _n1 = getRandomNumberByRange(1, 9);
-    const _n2 = getRandomNumberByRange(1, 10 - _n1);
+    const _n1 = getRandomNumberByRange(1, 10);
+    const _n2 = getRandomNumberByRange(1, 10);
     setN1(_n1 * 10);
     setN2(_n2 * 10);
   }, [refresh]);
@@ -776,8 +776,8 @@ export const Q30 = ({ show, refresh }: QuestionProps) => {
   const [n1, setN1] = useState(0);
   const [n2, setN2] = useState(0);
   useEffect(() => {
-    const _n1 = getRandomNumberByRange(1, 99);
-    const _n2 = getRandomNumberByRange(_n1, 99);
+    const _n1 = getRandomNumberByRange(1, 100);
+    const _n2 = getRandomNumberByRange(_n1, 100);
     setN1(_n1 * 10);
     setN2(_n2 * 10);
   }, [refresh]);
@@ -811,10 +811,31 @@ export const Q31 = ({ show, refresh }: QuestionProps) => {
 
 /**
  *
+ * 200 内整数减法
+ * 150 - 30 = ( 20 )
+ */
+export const Q32 = ({ show, refresh }: QuestionProps) => {
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(1, 19);
+    const _n2 = getRandomNumberByRange(_n1, 20);
+    setN1(_n1 * 10);
+    setN2(_n2 * 10);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ *
  * 1000 内减法
  * 500 - 300 = ( 200 )
  */
-export const Q32 = ({ show, refresh }: QuestionProps) => {
+export const Q33 = ({ show, refresh }: QuestionProps) => {
   const [n1, setN1] = useState(0);
   const [n2, setN2] = useState(0);
   useEffect(() => {
@@ -835,7 +856,7 @@ export const Q32 = ({ show, refresh }: QuestionProps) => {
  * 10000 内减法
  * 5000 - 3000 = ( 2000 )
  */
-export const Q33 = ({ show, refresh }: QuestionProps) => {
+export const Q34 = ({ show, refresh }: QuestionProps) => {
   const [n1, setN1] = useState(0);
   const [n2, setN2] = useState(0);
   useEffect(() => {

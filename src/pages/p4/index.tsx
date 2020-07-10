@@ -3,23 +3,15 @@
  */
 
 import React, { useState } from 'react';
-import { Link } from 'umi';
 import styles from '../index.less';
-import { List, Divider, Modal, Button } from 'antd';
+import { List } from 'antd';
 import Menu from '@/components/Menu';
-import { Q26, Q27, Q28, Q29, Q30, Q31, Q32, Q33 } from '@/components/Question';
+import { Q26, Q27, Q28, Q29, Q30, Q31, Q32, Q33, Q34 } from '@/components/Question';
 import { getRandomComponent } from '@/utils';
 
 const fn1 = () => {
   return [
     [Q26],
-    [Q27],
-    [Q28],
-    [Q29],
-    [Q30],
-    [Q31],
-    [Q32],
-    [Q33],
     [Q26],
     [Q27],
     [Q28],
@@ -28,6 +20,7 @@ const fn1 = () => {
     [Q31],
     [Q32],
     [Q33],
+    [Q34],
     // ...Array(1000).fill([Q30]),
   ].map(v => getRandomComponent(v));
 };
@@ -35,7 +28,6 @@ const fn1 = () => {
 export default () => {
   const [show, setShow] = useState(false);
   const [refresh, setRefresh] = useState('');
-  const [visible, setVisible] = useState(false);
 
   const [data_1, setData_1] = useState(fn1());
   // 刷新题目
