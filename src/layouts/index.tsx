@@ -7,17 +7,17 @@ const config = [
   {
     name: '2号本',
     key: '1',
-    url: '/p2',
+    url: './p2',
   },
   {
     name: '口算视频练习',
     key: '2',
-    url: '/p1',
+    url: './p1',
   },
   {
     name: '1万内整数运算',
     key: '3',
-    url: '/p4',
+    url: './p4',
   },
 ];
 
