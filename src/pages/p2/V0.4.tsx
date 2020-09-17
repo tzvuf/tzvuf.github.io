@@ -3,7 +3,7 @@ import { Link } from 'umi';
 import styles from '../index.less';
 import { List, Divider, Modal, Button } from 'antd';
 import Menu from '@/components/Menu';
-import { Q1, Q2, Q4, Q3, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q35, Q36 } from '@/components/Question';
+import { Q1, Q2, Q4, Q3, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25 } from '@/components/Question';
 import { getRandomComponent } from '@/utils';
 
 const fn1 = () => {
@@ -31,7 +31,11 @@ const fn3 = () => {
 };
 
 const fn4 = () => {
-  return [[Q5, Q6, Q7, Q19], [Q8, Q10], [Q3, Q20, Q22, Q23, Q24, ...Array(16).fill(Q25)], [Q35], [Q36]].map(v => getRandomComponent(v));
+  return [
+    [Q5, Q6, Q7, Q19],
+    [Q8, Q10],
+    [Q3, Q20, Q22, Q23, Q24, ...Array(16).fill(Q25)],
+  ].map(v => getRandomComponent(v));
 };
 
 export default () => {
@@ -143,15 +147,6 @@ export default () => {
             </List.Item>
           )}
         />
-      </div>
-      <div className={styles.history}>
-        历史版本：<Link to="/p2/V0.1">V0.1</Link>
-        <Divider type="vertical" />
-        <Link to="/p2/V0.2">V0.2</Link>
-        <Divider type="vertical" />
-        <Link to="/p2/V0.3">V0.3</Link>
-        <Divider type="vertical" />
-        <Link to="/p2/V0.4">V0.4</Link>
       </div>
 
       <Modal title="书写格式" visible={visible} onOk={handleHideModal} onCancel={handleHideModal} footer={null}>

@@ -832,7 +832,7 @@ export const Q32 = ({ show, refresh }: QuestionProps) => {
 
 /**
  *
- * 1000 内减法
+ * 1000 内减法 (整数)
  * 500 - 300 = ( 200 )
  */
 export const Q33 = ({ show, refresh }: QuestionProps) => {
@@ -853,7 +853,7 @@ export const Q33 = ({ show, refresh }: QuestionProps) => {
 
 /**
  *
- * 10000 内减法
+ * 10000 内减法 (整数)
  * 5000 - 3000 = ( 2000 )
  */
 export const Q34 = ({ show, refresh }: QuestionProps) => {
@@ -868,6 +868,50 @@ export const Q34 = ({ show, refresh }: QuestionProps) => {
   return (
     <span>
       {n2} - {n1} = (<span className={styles.red}>{show ? n2 - n1 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ * 1000以内的加法
+ * 281 + 191 = ( 472 )
+ */
+export const Q35 = ({ show, refresh }: QuestionProps) => {
+  const min = 100;
+  const max = 999;
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(min, max - min);
+    const _n2 = getRandomNumberByRange(1, max - _n1);
+    setN1(_n1);
+    setN2(_n2);
+  }, [refresh]);
+  return (
+    <span>
+      {n1} + {n2} = ( <span className={styles.red}>{show ? n1 + n2 : ''}</span> )
+    </span>
+  );
+};
+
+/**
+ * 100以内的减法
+ *  801 - 341 = ( 460 )
+ */
+export const Q36 = ({ show, refresh }: QuestionProps) => {
+  const min = 100;
+  const max = 999;
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
+  useEffect(() => {
+    const _n1 = getRandomNumberByRange(min, max);
+    const _n2 = getRandomNumberByRange(_n1, max);
+    setN1(_n1);
+    setN2(_n2);
+  }, [refresh]);
+  return (
+    <span>
+      {n2} - {n1} = ( <span className={styles.red}>{show ? n2 - n1 : ''}</span> )
     </span>
   );
 };
